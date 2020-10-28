@@ -1,0 +1,15 @@
+<div class="container">
+    <!--{{ this.customerService.selected | json }}-->
+    <mat-form-field>
+        <input matInput placeholder="Nombre" [(ngModel)]= "this.customerService.selected.name"/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Ciudad" [(ngModel)]= "this.customerService.selected.city"/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Orden" value='{{ this.customerService.selected.order }}'/>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="onUpdate()">
+        <mat-icon>save</mat-icon>
+    </button>
+</div>

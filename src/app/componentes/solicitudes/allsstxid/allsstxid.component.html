@@ -1,0 +1,81 @@
+<div class="container">
+    <mat-form-field>
+        <input matInput (keyup) = "applyFilter($event.target.value)" placeholder="Filtro"/>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- Departamento Column -->
+        <ng-container matColumnDef="folio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> FOLIO </th>
+        <td mat-cell *matCellDef="let element"> {{ element.folio }} </td>
+        </ng-container>
+        
+        <!-- FECHA DE LA SOLICITUD Column -->
+        <ng-container matColumnDef="fechaSol">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> FECHA SOLICITUD </th>
+            <td mat-cell *matCellDef="let element" style="font-size: 10px;"> {{ element.fechaSol }} </td>
+            </ng-container>
+
+        <!-- Titular Column -->
+        <ng-container matColumnDef="departamento_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DEPARTAMENTO </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 10px;">&nbsp; {{ this.depto.departamento }} &nbsp;</td>
+        </ng-container>
+    
+        <!-- Destino Column -->
+        <ng-container matColumnDef="destino">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DESTINO </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 10px;"> &nbsp;{{element.destino}} &nbsp;</td>
+        </ng-container>
+        
+        <!-- SALIDA Column -->
+        <ng-container matColumnDef="salidaSt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SALIDA </th>
+        <td mat-cell *matCellDef="let element" style="font-size: 10px;">&nbsp; {{element.salidaSt}} {{element.horaS}} &nbsp;</td>
+        </ng-container>
+
+        <!-- REGRESO Column -->
+        <ng-container matColumnDef="regresoSt">
+            <th mat-header-cell *matHeaderCellDef>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REGRESO </th>
+            <td mat-cell *matCellDef="let element" style="font-size: 10px;">&nbsp; {{element.regresoSt}} {{element.horaR}} &nbsp;</td>
+        </ng-container>
+
+        <!-- Tipo de Servicio Column -->
+        <ng-container matColumnDef="tServicio">
+            <th mat-header-cell *matHeaderCellDef> SERVICIO&nbsp;&nbsp;&nbsp; </th>
+            <td mat-cell *matCellDef="let element" style="font-size: 10px;">&nbsp; {{element.tServicio}}&nbsp;</td>
+        </ng-container>
+
+        <!-- Tipo de Transporte Column -->
+        <ng-container matColumnDef="tTransporte">
+            <th mat-header-cell *matHeaderCellDef> TRANSPORTE&nbsp;&nbsp;&nbsp; </th>
+            <td mat-cell *matCellDef="let element" style="font-size: 10px;">&nbsp; {{element.tTransporte}}&nbsp;</td>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acciones </th>
+            <td mat-cell *matCellDef="let element">&nbsp;
+                <button mat-flat-button color="accent"(click)="onEdit(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>&nbsp;
+                <button mat-flat-button color="warn" (click)="imprimir(element)">
+                    <mat-icon>print</mat-icon>
+                </button>&nbsp;
+            </td>
+        </ng-container>
+
+        <!-- New Column -->
+        <ng-container matColumnDef="new">
+            <th mat-header-cell *matHeaderCellDef>
+            <button mat-flat-button color="primary" (click)="onEdit()">
+                <mat-icon>add</mat-icon>
+            </button>
+            </th>
+            <td mat-cell *matCellDef="let element"></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

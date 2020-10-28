@@ -1,0 +1,37 @@
+
+<h4 class="text-center">
+    EDITAR DEPARTAMENTO
+</h4>
+<div class="container">
+    <mat-form-field>
+        <input matInput placeholder="Departamento"
+            [(ngModel)]= "this.departamentoService.selected.departamento"/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Titular"
+            [(ngModel)]= 'this.departamentoService.selected.titular'/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="e-mail"
+            [(ngModel)]='this.departamentoService.selected.correosind'/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Teléfono(s)"
+            [(ngModel)]='this.departamentoService.selected.teldirecto'/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ext" [(ngModel)]='this.departamentoService.selected.ext'/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ext2" [(ngModel)]='this.departamentoService.selected.ext2'/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="password" type="password" [(ngModel)]='this.departamentoService.selected.psw'/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="confirmar password" type="password" [(ngModel)]='this.departamentoService.selected.psw'/>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="actualizar()">
+        <mat-icon>save</mat-icon>
+    </button>
+</div>

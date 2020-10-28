@@ -1,0 +1,113 @@
+<div class="container">
+    <h4 class="text-center">
+        SOLICITUD DE SERVICIO DE CORRESPONDENCIA y PAQUETERÍA
+    </h4>
+    <!--mat-form-field>
+        <input matInput placeholder='Folio proporcionardo por el departamento de Jardinería y Transportes' 
+                [(ngModel)] ='this.servicios.selectedSC.folio' readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Área solicitante"
+                [(ngModel)] = 'this.deptoSesion.departamento'
+                value = 'this.deptoSesion.departamento'
+                readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Titular"
+        [(ngModel)] = 'this.deptoSesion.titular'
+        value = 'this.deptoSesion.titular'
+        readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="e-mail" 
+                [(ngModel)]='this.deptoSesion.correosind'
+                value = 'this.deptoSesion.correosind'
+                readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Teléfono(s)"
+                [(ngModel)]='this.deptoSesion.teldirecto'
+                value = 'this.deptoSesion.teldirecto'
+                readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ext" [(ngModel)]='this.deptoSesion.ext' readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ext2" [(ngModel)]='this.deptoSesion.ext2' readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="fecha" type="text"
+                value="{{ hoy | date:'yyyy-MM-dd'}}"
+                readonly/>
+    </mat-form-field>
+    <br><hr-->
+    <h4>ÁREA DE CAPTURA</h4>
+    <!--form #f="ngForm" novalidate (ngSubmit)="solicitarST()"-->
+    <mat-form-field>
+        <input matInput placeholder='Nombre de usuario o remitente'
+                [(ngModel)]='this.servicios.selectedSC.remitente' 
+                required/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Destinatario"
+                [(ngModel)]='this.servicios.selectedSC.destinatario'
+                required/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Destino (Dirección completa)"
+                [(ngModel)]='this.servicios.selectedSC.destino'
+                required/>
+    </mat-form-field>
+    
+    <h5>FECHA DE ENTREGA DEL SERVICIO</h5>
+    <mat-form-field>
+        <!--input matInput [(ngModel)]='this.servicios.selectedSC.entrega'
+                type="date" required/-->
+        <input matInput [matDatepicker]="picker" [(ngModel)]='this.servicios.selectedSC.entrega'>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br><br>
+    <mat-radio-group [(ngModel)]='this.servicios.selectedSC.tCorrespondencia' required>TIPO DE SERVICIO:&nbsp;&nbsp;
+        <mat-radio-button value="OFICIOS, SOBRES, CARTAS, IMPRESOS, TARJETAS">OFICIOS, SOBRES, CARTAS, IMPRESOS, TARJETAS</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-radio-button value="ENGARGOLADO">ENGARGOLADO</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-radio-button value="OTROS">OTROS</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+        <input matInput [(ngModel)]='this.servicios.selectedSC.cantidad'
+                type="text" placeholder='Cantidad' required/>
+    </mat-form-field><br>
+        <mat-radio-group [(ngModel)]='this.servicios.selectedSC.formaEnvio' required>FORMA DE ENVÍO:&nbsp;&nbsp;
+            <mat-radio-button value="PROPIO">PROPIO</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value="CORREO ORDINARIO">CORREO ORDINARIO</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value="MENSAJERÍA ESPECIALIZADA">MENSAJERÍA ESPECIALIZADA</mat-radio-button>
+        </mat-radio-group><br><br>
+        <mat-radio-group [(ngModel)]='this.servicios.selectedSC.tEnvio' required>TIPO DE ENVÍO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value="URGENTE">URGENTE</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value="ORDINARIO">ORDINARIO</mat-radio-button>
+        </mat-radio-group><br><br>
+        <mat-radio-group [(ngModel)]='this.servicios.selectedSC.anexo' required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿ANEXO?:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value='true'>SI</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value='false'>NO</mat-radio-button>
+        </mat-radio-group><br><br>
+    <mat-form-field>
+        <textarea matInput
+                placeholder="Información adicional"
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="5"
+                cdkAutosizeMaxRows="5"
+                [(ngModel)]='this.servicios.selectedSC.infAd'></textarea>
+    </mat-form-field>
+
+    <!--button mat-flat-button color="primary" (click)="solicitarST()"-->
+    <button mat-flat-button color="primary" (click)="guardar()">
+        <mat-icon>save</mat-icon>
+    </button>
+    <!--/form-->
+</div>
+
+<div class="container">
+
+</div>

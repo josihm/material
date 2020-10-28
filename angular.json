@@ -52,7 +52,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/crypto-js/crypto-js.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -145,6 +147,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "material"
+    }
+  },
+  "defaultProject": "material",
+  "cli": {
+    "analytics": false
+  }
 }
