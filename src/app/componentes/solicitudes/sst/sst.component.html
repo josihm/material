@@ -1,0 +1,114 @@
+<div class="container">
+    <h4 class="text-center">
+        SOLICITUD DE SERVICIO DE TRANSPORTE
+    </h4>
+    <!--mat-form-field>
+        <input matInput placeholder='Folio proporcionardo por el departamento de Jardinería y Transportes' 
+                [(ngModel)] ='this.servicios.selectedST.folio' readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Área solicitante"
+                [(ngModel)] = 'this.deptoSesion.departamento'
+                value = 'this.deptoSesion.departamento'
+                readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Titular"
+        [(ngModel)] = 'this.deptoSesion.titular'
+        value = 'this.deptoSesion.titular'
+        readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="e-mail" 
+                [(ngModel)]='this.deptoSesion.correosind'
+                value = 'this.deptoSesion.correosind'
+                readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Teléfono(s)"
+                [(ngModel)]='this.deptoSesion.teldirecto'
+                value = 'this.deptoSesion.teldirecto'
+                readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ext" [(ngModel)]='this.deptoSesion.ext' readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ext2" [(ngModel)]='this.deptoSesion.ext2' readonly/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="fecha" type="text"
+                value="{{ hoy | date:'yyyy-MM-dd'}}"
+                readonly/>
+    </mat-form-field>
+    <br><hr>
+    <h4>DATOS A CAPTURAR</h4-->
+    <!--form #f="ngForm" novalidate (ngSubmit)="solicitarST()"-->
+    <mat-form-field>
+        <input matInput placeholder="Nombre del usuario(s)"
+                [(ngModel)]='this.servicios.selectedST.pasajeros'
+                required/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Destino (Dirección completa)"
+                [(ngModel)]='this.servicios.selectedST.destino'
+                required/>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Número de pasajeros"
+                [(ngModel)]='this.servicios.selectedST.nPasajeros'
+                required/>
+    </mat-form-field>
+    <h5>FECHA DE SALIDA DEL SERVICIO</h5>
+    <mat-form-field>
+        <input matInput [(ngModel)]='this.servicios.selectedST.salidaSt'
+                type="date" required/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>HORA DE SALIDA</mat-label>
+        <mat-select [(value)]='this.servicios.selectedST.horaS'
+                    required>
+            <mat-option *ngFor="let hora of horas" [value]="hora.value">
+              {{hora.viewValue}}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+    <h5>FECHA DE REGRESO DEL SERVICIO</h5>
+    <mat-form-field>
+        <input matInput [(ngModel)]='this.servicios.selectedST.regresoSt'
+                type="date" required/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>HORA DE REGRESO</mat-label>
+        <mat-select [(value)]='this.servicios.selectedST.horaR' required>
+            <mat-option *ngFor="let hora of horas" [value]="hora.value">
+                {{hora.viewValue}}
+              </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <hr>
+        <mat-radio-group [(ngModel)]='this.servicios.selectedST.tServicio' required>TIPO DE SERVICIO:&nbsp;&nbsp;
+            <mat-radio-button value="LOCAL">LOCAL</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value="FORÁNEO">FORÁNEO</mat-radio-button>
+        </mat-radio-group>
+        <mat-radio-group [(ngModel)]='this.servicios.selectedST.tTransporte' required>TIPO DE TRANPORTE:&nbsp;&nbsp;
+            <mat-radio-button value="PASAJEROS">PASAJEROS</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value="CARGA">CARGA</mat-radio-button>
+        </mat-radio-group><br>
+    
+    <mat-form-field>
+        <textarea matInput
+                placeholder="Información adicional"
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="5"
+                cdkAutosizeMaxRows="5"
+                [(ngModel)]='this.servicios.selectedST.infAd'></textarea>
+    </mat-form-field>
+
+    <!--button mat-flat-button color="primary" (click)="solicitarST()"-->
+    <button mat-flat-button color="primary" (click)="solicitarST()">
+        <mat-icon>save</mat-icon>
+    </button>
+    <!--/form-->
+</div>

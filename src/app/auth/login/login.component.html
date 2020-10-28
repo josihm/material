@@ -1,0 +1,58 @@
+<!--div class="example-container">
+    <span class="center">ToDo App</span>
+    <ng-container *ngIf="errorMessage">
+      <span class="error">{{errorMessage}}</span>
+    </ng-container>
+   
+    <form ([formGroup])="loginForm">
+      <div class="form-group">
+        <label for="title">Username*</label>
+        <input type="text" id="username" placeholder="Username" class="form-control"/>
+        <span style="color:Red;"
+          ngIf="loginForm.controls['email'].touched && loginForm.controls['username'].errors?.required">Username is
+          required.</span>
+      </div>
+   
+      <div class="form-group">
+        <label for="description">Password*</label>
+        <input id="password" type="password" placeholder="Password" class="form-control"/>
+        <span style="color:Red;"
+          ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.required">Password is
+          required.</span>
+      </div>
+   
+      <div class="buttons-container center">
+        <button class="btn btn-primary" (click)="signIn()">
+          Log in
+        </button>
+        <button class="btn btn-success" (click)="createUser()">
+          Create Account
+        </button>
+      </div>
+    </form>
+</div-->
+
+<div *ngIf="isLogged; else loggedOut">
+  {{ deptoSel }}
+</div>
+
+<ng-template #loggedOut>
+  <div class="container">
+    <h3 class="text-center">INICIO DE SESIÓN</h3>
+    <mat-form-field>
+      <input matInput placeholder="Correo Electrónico" [(ngModel)]= "this.correosind"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type = "password" placeholder="Contraseña" [(ngModel)]= "this.psw"/>
+    </mat-form-field>
+
+    
+      <button mat-flat-button color="primary" (click)="search(this.correosind, this.psw)">
+        <!--button mat-flat-button color="primary" (click)="signIn(this.correosind,this.psw)"-->
+          <mat-icon>keyboard_return</mat-icon>
+        </button>
+  </div>
+  <div *ngIf="isLoginFail" class="alert alert-danger mt-3">
+    Falló la auntenticación: {{ this.errorMensage }}
+  </div>
+</ng-template>
